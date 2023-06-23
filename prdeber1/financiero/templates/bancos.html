@@ -1,0 +1,32 @@
+{% extends "principal.html" %}
+{% block contentido %}
+
+  <h3>Lista de Entidades Financieras</h3>
+  <p><b>Número de Entidades: ({{num_entidades}})</b> </p>
+  <table id="tabla_datos">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Siglas</th>
+      <th>Numero de Sucursales</th>
+      <th>Ciudad</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for banco in mis_entidades  %}
+      <tr>
+        <td>{{banco.nombre}}</td>
+        <td>{{banco.siglas}}</td>
+        <td>{{banco.num_suc}}</td>
+        <td>{{banco.ciudad}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </tbody>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#tabla_datos').DataTable();
+        });
+    </script>
+{% endblock %}
